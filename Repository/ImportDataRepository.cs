@@ -29,14 +29,14 @@ namespace Repository
             }      
             return jsons;
         }
-        public static IList<YamlProduct> GetYamlProducts(string file)
+        public static IList<YamlProduct> GetYamlProducts(string fileContent)
         {
             //do not distinguish lowercase and uppercase
             var deserializer = new DeserializerBuilder()
                 .WithNamingConvention(CamelCaseNamingConvention.Instance)
                 .Build();
 
-            IList<YamlProduct> results = deserializer.Deserialize<IList<YamlProduct>>(file).ToList();
+            IList<YamlProduct> results = deserializer.Deserialize<IList<YamlProduct>>(fileContent).ToList();
             return results;
         }
     }
