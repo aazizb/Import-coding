@@ -1,5 +1,5 @@
 	What I would Add:
-Surely, carry out the implementation of the different tests ; and next I would recommend to add the error handling to make it global error handling.
+Surely, I would carry out the implementation of the different tests ; and next I would recommend to add the error handling to make it global error handling.
 
 	How to run the code:
 
