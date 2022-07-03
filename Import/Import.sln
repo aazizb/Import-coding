@@ -5,11 +5,16 @@ VisualStudioVersion = 17.3.32519.111
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Import", "Import.csproj", "{47B4E6F9-4331-4F68-99F7-28B4FF6376BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contract", "..\Contract\Contract.csproj", "{97D3DA4C-E53A-4A21-ADA4-11047792D8C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Contract", "..\Contract\Contract.csproj", "{97D3DA4C-E53A-4A21-ADA4-11047792D8C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Service", "..\Service\Service.csproj", "{4E400AE5-5103-4EEA-9DDD-2F311EFA497D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Service", "..\Service\Service.csproj", "{4E400AE5-5103-4EEA-9DDD-2F311EFA497D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repository", "..\Repository\Repository.csproj", "{F19A23A8-B348-45C5-9EAC-BE0E273316FD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Repository", "..\Repository\Repository.csproj", "{F19A23A8-B348-45C5-9EAC-BE0E273316FD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database Asseeement", "Database Asseeement", "{BC0FD5A5-CCB0-4EA5-AC82-FAF4A9CDDF5A}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\OneDrive\docBarry\Documents\Job Apply\software engineer coding assessment\software engineer\database\README.md = ..\..\..\..\OneDrive\docBarry\Documents\Job Apply\software engineer coding assessment\software engineer\database\README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
