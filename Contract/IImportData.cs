@@ -5,7 +5,7 @@ namespace Contract
     public interface IImportData
     {
         T ImportCsv<T>(string url);
-        T ImportJson<T>(string jsonFile);
+        JsonProductDto ImportJson(string jsonFile);
         IList<YamlProductDto> ImportJaml(string yamlFile);
     }
 }

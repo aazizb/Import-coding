@@ -1,6 +1,7 @@
 ﻿
 using Contract;
 using Contract.Dtos;
+using Contract.Models;      ///
 
 using Import.DataAdapter;
 
@@ -26,9 +27,9 @@ namespace Import
   
         }
 
-        public T ImportJson<T>(string jsonFile)
+        public JsonProductDto ImportJson(string jsonFile)
         {
-            throw new System.NotImplementedException();
+            return null;
         }
     }
 }

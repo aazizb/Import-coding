@@ -26,7 +26,6 @@ namespace Import
                     Log.Logger.Information("There is no file to process...");
                     return;
                 }
-                
 
                 string fullPath = args[0].ToString();
 
@@ -45,27 +44,8 @@ namespace Import
                 {
 
                     case EnumExtension.Json:
-                        
-                        //List<JsonProduct> product = importData.ImportJson<JsonProduct>(fileContent);
-                        //if (jsonProduct is null)
-                        //{
-                        //    Log.Logger.Information("File could not be deserialized...");
-                        //    return;
-                        //}
-                        ////flatten nested object
-                        //IList<Product> newJson = jsonProduct.products.ToList();
-                        //var flatten = newJson.SelectMany(o => o.Categories
-                        //        .Select(p => new
-                        //        {
-                        //            Category = p,
-                        //            o.Title,
-                        //            o.Twitter
-                        //        }));
+                        JsonProductDto json = importData.ImportJson(fileContent);
 
-                        //foreach (var item in flatten)
-                        //{
-                        //    Console.WriteLine($"importing: name: {item.Title}; Categories: {item.Category}; Twitter: {item.Twitter}");
-                        //}
                         break;
                     case EnumExtension.Yaml:
                         

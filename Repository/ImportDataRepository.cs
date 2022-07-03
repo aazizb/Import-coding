@@ -1,5 +1,8 @@
 ﻿using Contract.Models;
 
+using System.Net.Http.Json;
+using System.Text.Json;
+
 using YamlDotNet.Serialization;
 using YamlDotNet.Serialization.NamingConventions;
 
@@ -14,15 +17,18 @@ namespace Repository
                 return file.ReadToEnd();
             }
         }
-        private static IList<T> DeserializeYaml<T>(string yamlContent)
+        public static JsonProduct GetJsonProducts(string jsonContent)
         {
-            //do not distinguish lowercase and uppercase
-            var deserializer = new DeserializerBuilder()
-                .WithNamingConvention(CamelCaseNamingConvention.Instance)
-                .Build();
-
-            IList<T> results = deserializer.Deserialize<IList<T>>(yamlContent);
-            return results;
+            var xx = (JsonProduct)JsonSerializer.Deserialize(jsonContent, typeof(JsonProduct),
+                         new JsonSerializerOptions()
+                         {
+                             PropertyNameCaseInsensitive = true
+                         });
+            return (JsonProduct)JsonSerializer.Deserialize(jsonContent, typeof(JsonProduct),
+                         new JsonSerializerOptions()
+                         {
+                             PropertyNameCaseInsensitive = true
+                         });
         }
         public static IList<YamlProduct> GetYamlProducts(string file)
         {
@@ -33,13 +39,6 @@ namespace Repository
 
             IList<YamlProduct> results = deserializer.Deserialize<IList<YamlProduct>>(file).ToList();
             return results;
-
-            //var fileContent = ReadFileContent(file);
-
-            //List<YamlProduct> yaml = DeserializeYaml<YamlProduct>(fileContent).ToList<YamlProduct>();
-
-            //return yaml;
-
         }
     }
 }

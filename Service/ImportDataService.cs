@@ -12,6 +12,12 @@ namespace Service
 
             return data.ToList();
         }
+        public static JsonProduct GetJsonProducts(string file)
+        {
+            JsonProduct data = ImportDataRepository.GetJsonProducts(file);
+
+            return data;
+        }
 
     }
 }
