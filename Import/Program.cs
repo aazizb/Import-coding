@@ -1,5 +1,6 @@
 ﻿using Contract;
 using Contract.Dtos;
+using Contract.Models;
 
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +11,7 @@ using Serilog;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Import
 {
@@ -28,7 +30,7 @@ namespace Import
                 }
 
                 string fullPath = args[0].ToString();
-
+                
                 EnumExtension fileExtension = GetFileExtension(fullPath);
 
                 if (fileExtension == EnumExtension.Unknown)
@@ -44,9 +46,29 @@ namespace Import
                 {
 
                     case EnumExtension.Json:
-                        JsonProductDto json = importData.ImportJson(fileContent);
 
+                        IList<JsonProductDto> json = importData.ImportJson(fileContent);
+
+                        if (json is null)
+                        {
+                            Log.Logger.Information($"File {fullPath} could not be deserialized.");
+                            return;
+                        }
+
+                        var flatten = json.SelectMany(o => o.Categories
+                                .Select(p => new
+                                {
+                                    Category = p,
+                                    o.Title,
+                                    o.Twitter
+                                }));
+
+                        foreach (var item in flatten)
+                        {
+                            Console.WriteLine($"importing: name: {item.Title}; Categories: {item.Category}; Twitter: {item.Twitter}");
+                        }
                         break;
+
                     case EnumExtension.Yaml:
                         
                         IList<YamlProductDto> yaml = importData.ImportJaml(fileContent);
@@ -61,7 +83,9 @@ namespace Import
                             Console.WriteLine($"importing: name: {item.Name}; Categories: {item.Tags}; Twitter: {item.Twitter}");
                         }
                         break;
+
                     default:
+
                         Log.Logger.Information($"File {fullPath} format is not supported");
                         break;
                 }

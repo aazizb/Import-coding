@@ -1,7 +1,6 @@
 ﻿
 using Contract;
 using Contract.Dtos;
-using Contract.Models;      ///
 
 using Import.DataAdapter;
 
@@ -27,9 +26,10 @@ namespace Import
   
         }
 
-        public JsonProductDto ImportJson(string jsonFile)
+        public IList<JsonProductDto> ImportJson(string jsonFile)
         {
-            return null;
+            List<JsonProductDto> data = ImportDataService.GetJsonProducts(jsonFile).BoToDto();
+            return data;
         }
     }
 }

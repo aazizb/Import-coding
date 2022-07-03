@@ -12,11 +12,11 @@ namespace Service
 
             return data.ToList();
         }
-        public static JsonProduct GetJsonProducts(string file)
+        public static List<JsonProduct> GetJsonProducts(string file)
         {
-            JsonProduct data = ImportDataRepository.GetJsonProducts(file);
+            IList<JsonProduct> data = ImportDataRepository.GetJsonProducts(file);
 
-            return data;
+            return data.ToList();
         }
 
     }
