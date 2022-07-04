@@ -29,6 +29,7 @@ namespace Import
         public IList<JsonProductDto> ImportJson(string jsonFile)
         {
             List<JsonProductDto> data = ImportDataService.GetJsonProducts(jsonFile).BoToDto();
+
             return data;
         }
     }

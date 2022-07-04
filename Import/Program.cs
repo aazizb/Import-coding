@@ -23,13 +23,13 @@ namespace Import
             {
                 ConfigureServices();
 
-                //if (args.Length == 0)
-                //{
-                //    Log.Logger.Information("There is no file to process...");
-                //    return;
-                //}
+                if (args.Length == 0)
+                {
+                    Log.Logger.Information("There is no file to process...");
+                    return;
+                }
 
-                string fullPath = @"C:\Users\aaziz\Downloads\software engineer coding assessment\software engineer\coding\feed-products\capterra.yaml";// args[0].ToString();
+                string fullPath = args[0].ToString();
                 
                 EnumExtension fileExtension = GetFileExtension(fullPath);
 
@@ -82,6 +82,7 @@ namespace Import
                         {
                             Console.WriteLine($"importing: name: {item.Name}; Categories: {item.Tags}; Twitter: {item.Twitter}");
                         }
+                        //Persist data here
                         break;
 
                     default:
