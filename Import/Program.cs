@@ -1,4 +1,5 @@
 ﻿using Contract;
+using Contract.Context;
 using Contract.Dtos;
 using Contract.Models;
 
@@ -67,6 +68,11 @@ namespace Import
                         {
                             Console.WriteLine($"importing: name: {item.Title}; Categories: {item.Category}; Twitter: {item.Twitter}");
                         }
+                        //Persist data here  using EF Core
+                        //using (var dbContext = new ImportDataDbContext())
+                        //{
+                        //    dbContext.Add(json);
+                        //}
                         break;
 
                     case EnumExtension.Yaml:
@@ -82,7 +88,11 @@ namespace Import
                         {
                             Console.WriteLine($"importing: name: {item.Name}; Categories: {item.Tags}; Twitter: {item.Twitter}");
                         }
-                        //Persist data here
+                        //Persist data here using EF Core
+                        //using (var dbContext = new ImportDataDbContext())
+                        //{
+                        //    dbContext.Add(yaml);
+                        //}
                         break;
 
                     default:
